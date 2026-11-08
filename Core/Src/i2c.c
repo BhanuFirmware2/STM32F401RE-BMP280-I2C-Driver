@@ -55,18 +55,18 @@ void I2C1_Stop(void) {
     I2C1_CR1 |= (1U << 9);
 }
 
-// టైమ్‌అవుట్ మరియు AF ఎర్రర్ హ్యాండ్లింగ్‌తో కూడిన Writeaddress
+
 void I2C1_Writeaddress(uint8_t address) {
     I2C1_DR = address;
-    uint32_t timeout = 50000; // హ్యాంగ్ అవ్వకుండా ఉండటానికి టైమ్‌అవుట్
+    uint32_t timeout = 50000; //
 
     while (!(I2C1_SR1 & (1U << 1))) {
-        // AF (Acknowledge Failure) బిట్ చెక్ చేయడం (Bit 9)
+        // Check AF (Acknowledge Failure) Bit 9
         if (I2C1_SR1 & (1U << 9)) {
             volatile uint32_t temp = I2C1_SR1;
             (void)temp;
             I2C1_Stop();
-            I2C1_SR1 &= ~(1U << 9); // AF క్లియర్ చేయడం
+            I2C1_SR1 &= ~(1U << 9); // Clear AF bit
             return;
         }
 
