@@ -232,6 +232,9 @@ cd STM32F401RE-BMP280-I2C-Driver
 
 Open the project in STM32CubeIDE and build the firmware.
 
+## Output
+https://github.com/BhanuFirmware2/STM32F401RE-BMP280-I2C-Driver/blob/main/Output%20Read%20Chipid.png
+
 ## Author
 
  Ravinuthala Bhanu Prakash
